@@ -33,7 +33,7 @@ export default function PlacePage() {
         })
     }
 
-    function save() {
+    async function save() {
         if (!name && name.trim() === '') {
             Alert.alert('O Nome é obrigatório!')
         }
@@ -42,12 +42,15 @@ export default function PlacePage() {
         }
         if (!pass && pass.trim() === '') {
             Alert.alert('A senha é obrigatório!')
+            return
         }
         if (!passConfirm && passConfirm.trim() === '') {
             Alert.alert('A confirmação de senha é obrigatório!')
+            return
         }
         if (pass != passConfirm) {
             Alert.alert('A senha e confirmação de senha estão diferentes!')
+            return
         }
 
 
@@ -58,8 +61,19 @@ export default function PlacePage() {
         }
 
         userRepo.save(user).then(() => {
-            navigation.navigate("Lista")
-        })
+            Alert.alert(
+                'Sucesso!',
+                'Usuário cadastrado com sucesso!',
+                [
+                    {
+                        text: 'OK',
+                        onPress: () => navigation.goBack(), // Só volta quando o usuário tocar em OK
+                    },
+                ],
+                { cancelable: false }
+            );
+        });
+
     }
 
     return (
@@ -100,7 +114,7 @@ export default function PlacePage() {
                 </View>
             )}
 
-           {/* <View style={styles.button}>
+            {/* <View style={styles.button}>
                 <Button title="Salvar" onPress={save} />
             </View> */}
 

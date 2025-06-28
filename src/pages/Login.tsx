@@ -58,6 +58,7 @@ export default function LoginPage() {
                 value={pass}
                 style={styles.inputName}
                 placeholder="Senha" onChangeText={setPass}
+                secureTextEntry={true}
             />
 
             {/*<View style={styles.button}>
