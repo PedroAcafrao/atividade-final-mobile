@@ -33,7 +33,7 @@ export default function App() {
    
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name='Login' component={LoginPage} options={{ headerShown: false }} />
+          <Stack.Screen name='Login' component={LoginPage} options={{ title: 'Login' }} />
           <Stack.Screen name='Registro' component={RegisterPage} options={{ title: 'Registrar-se' }} />
           <Stack.Screen name='Lista' component={ListPage} options={{ title: 'Lista' }} />
         </Stack.Navigator>
